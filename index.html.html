@@ -1,0 +1,419 @@
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>eventshayat.com — Estudio de diseño</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+    :root {
+      color-scheme: light;
+      --ecru: #F3EFE8;
+      --gris-piedra: #D9D6D1;
+      --carbon: #2B2B2B;
+      --oliva: #8A8D7A;
+      --inter: 'Inter', sans-serif;
+      --serif: 'Cormorant Garamond', serif;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: var(--inter);
+      background: var(--ecru);
+      color: var(--carbon);
+      line-height: 1.6;
+    }
+    header {
+      min-height: 100vh;
+      background: linear-gradient(180deg, rgba(43,43,43,0.65), rgba(43,43,43,0.25)), url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem clamp(1.5rem, 4vw, 4rem);
+    }
+    header .info {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.2rem;
+    }
+    header h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      margin: 1rem 0;
+      max-width: 28rem;
+    }
+    header .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.8rem;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.5);
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.15rem;
+      transition: background 0.3s ease;
+    }
+    header .cta:hover {
+      background: rgba(255,255,255,0.35);
+    }
+    main {
+      padding: 4rem clamp(1.5rem, 4vw, 4rem);
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+    section {
+      background: white;
+      border-radius: 1.5rem;
+      padding: clamp(2rem, 3vw, 3rem);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+    h2 {
+      font-family: var(--serif);
+      margin-bottom: 1rem;
+      font-size: clamp(1.8rem, 2.5vw, 2.8rem);
+    }
+    p {
+      margin: 0 0 1rem;
+    }
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+    .contact-line a {
+      color: var(--carbon);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .hero-links a {
+      font-family: var(--serif);
+      text-decoration: none;
+      color: white;
+      border-bottom: 1px solid white;
+      padding-bottom: 0.2rem;
+    }
+    .section-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .services-list, .process-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.5rem;
+    }
+    .services-list li, .process-list li {
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--gris-piedra);
+      border-radius: 0.8rem;
+      background: var(--ecru);
+      font-weight: 500;
+    }
+    .projects {
+      display: grid;
+      gap: 2rem;
+    }
+    .project-card {
+      display: grid;
+      gap: 1rem;
+    }
+    .project-hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+      gap: 0.5rem;
+    }
+    .project-hero img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 1rem;
+      filter: grayscale(40%);
+      transition: filter 0.4s ease;
+    }
+    .project-hero img:hover {
+      filter: grayscale(0%);
+    }
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--carbon);
+    }
+    .instagram {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+      gap: 1rem;
+    }
+    .ig-card {
+      border-radius: 1rem;
+      overflow: hidden;
+      height: 160px;
+      background: var(--gris-piedra);
+      position: relative;
+    }
+    .ig-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(50%);
+      transition: filter 0.4s ease;
+    }
+    .ig-card:hover img {
+      filter: grayscale(0%);
+    }
+    .testimonios {
+      display: grid;
+      gap: 1rem;
+    }
+    blockquote {
+      margin: 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--oliva);
+      font-style: italic;
+    }
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+    label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border-radius: 0.7rem;
+      border: 1px solid var(--gris-piedra);
+      font-family: var(--inter);
+      font-size: 1rem;
+      background: #fff;
+    }
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    button {
+      border: none;
+      background: var(--carbon);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 0.8rem;
+      font-family: var(--serif);
+      font-size: 1rem;
+      letter-spacing: 0.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: var(--oliva);
+    }
+    .instagram-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--gris-piedra);
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+    .instagram-header a {
+      text-decoration: none;
+      color: var(--carbon);
+      font-weight: 600;
+      border-bottom: 1px solid var(--carbon);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .publication ul {
+      padding-left: 1.2rem;
+    }
+    .call-button {
+      position: sticky;
+      bottom: 1.5rem;
+      align-self: flex-end;
+      margin-left: auto;
+      background: var(--oliva);
+      color: white;
+      padding: 0.9rem 1.5rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .call-button {
+        display: inline-flex;
+      }
+      header {
+        min-height: 80vh;
+      }
+      .project-hero img {
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="info">Estudio editorial en Reus | Tarragona</div>
+      <h1>eventshayat.com</h1>
+      <p>Diseño de eventos con criterio silencioso y materiales honestos, generando espacios de calma y altos acentos tipográficos.</p>
+      <div class="hero-links">
+        <a href="tel:722252743">Tel. 722252743</a>
+        <a href="mailto:hayatrouiess@hotmail.com">Email hayatrouiess@hotmail.com</a>
+        <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+      </div>
+    </div>
+    <a class="cta" id="cta-request">Solicitar disponibilidad</a>
+  </header>
+  <main>
+    <section>
+      <h2>Sobre el estudio</h2>
+      <p>Visualizamos cada evento como un ensayo editorial: tipografía protagonista, luz suave, silencio estructural y una paleta coherente entre materiales honestos y acabados cálidos.</p>
+      <p>El orden y la calma visual son claves para que cada elemento respire y el público escuche la emoción contenida.</p>
+    </section>
+    <section>
+      <h2>Servicios</h2>
+      <ul class="services-list">
+        <li>Diseño integral de eventos</li>
+        <li>Decoración parcial</li>
+        <li>Dirección estética</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Proceso de trabajo</h2>
+      <ol class="process-list">
+        <li>Exploración estética</li>
+        <li>Concepto y paleta</li>
+        <li>Diseño y producción</li>
+        <li>Montaje silencioso</li>
+        <li>Cierre y entrega</li>
+      </ol>
+    </section>
+    <section class="projects">
+      <h2>Proyectos curados</h2>
+      <article class="project-card">
+        <div class="project-hero">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80" alt="Proyecto editorial 1">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Proyecto editorial 2">
+          <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=800&q=80" alt="Proyecto editorial 3">
+        </div>
+        <div class="project-meta">
+          <span>Lugar: Hotel con patios de Reus</span>
+          <span>Paleta: Ecru cálido, gris piedra, oliva apagado</span>
+        </div>
+        <p>Notas: piezas de cerámica artesanal, iluminación tenue, y materiales brut que reflejan serenidad bajo el teléfono.</p>
+      </article>
+      <article class="project-card">
+        <div class="project-hero">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Proyecto editorial 4">
+          <img src="https://images.unsplash.com/photo-1416331108676-a22ccb276e35?auto=format&fit=crop&w=800&q=80" alt="Proyecto editorial 5">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80" alt="Proyecto editorial 6">
+        </div>
+        <div class="project-meta">
+          <span>Lugar: Masía en Tarragona</span>
+          <span>Paleta: Ecru, carbón, oliva suave</span>
+        </div>
+        <p>Notas: escenario de texturas naturales, piezas escultóricas, y una coreografía luminosa sin ruido.</p>
+      </article>
+    </section>
+    <section>
+      <div class="instagram-header">
+        <h2>Catálogo en Instagram</h2>
+        <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Ver Instagram curado</a>
+      </div>
+      <div class="instagram">
+        <div class="ig-card"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80" alt="Instagram 1"></div>
+        <div class="ig-card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Instagram 2"></div>
+        <div class="ig-card"><img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=600&q=80" alt="Instagram 3"></div>
+        <div class="ig-card"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=600&q=80" alt="Instagram 4"></div>
+        <div class="ig-card"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Instagram 5"></div>
+        <div class="ig-card"><img src="https://images.unsplash.com/photo-1470336115156-1c8a8b7d22e1?auto=format&fit=crop&w=600&q=80" alt="Instagram 6"></div>
+      </div>
+    </section>
+    <section>
+      <h2>Testimonios</h2>
+      <div class="testimonios">
+        <blockquote>“Silencio estratégico y atmósferas cálidas. Cada detalle es una declaración de calma.” — Alba S.</blockquote>
+        <blockquote>“Criterio impecable y una paleta que no exige más que contemplarla.” — Marc T.</blockquote>
+        <blockquote>“Atentas manos que proceden con disciplina editorial y cariño local.” — Núria P.</blockquote>
+      </div>
+    </section>
+    <section id="form-section">
+      <h2>Solicitud de disponibilidad</h2>
+      <form>
+        <div>
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        </div>
+        <div>
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="722252743" required>
+        </div>
+        <div>
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+        </div>
+        <div>
+          <label for="servicio">Servicio de interés</label>
+          <select id="servicio">
+            <option>Diseño integral de eventos</option>
+            <option>Decoración parcial</option>
+            <option>Dirección estética</option>
+          </select>
+        </div>
+        <div>
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Describe tu evento, fechas y sensaciones deseadas."></textarea>
+        </div>
+        <button type="submit">Enviar solicitud</button>
+      </form>
+    </section>
+    <section class="publication">
+      <h2>Publicación e indexación</h2>
+      <p>Registros DNS listos para pegar en tu panel de dominio:</p>
+      <ul>
+        <li>A | @ → 76.76.21.21 | TTL 3600</li>
+        <li>CNAME | www → cname.vercel-dns.com | TTL 3600</li>
+        <li>(Opcional) CAA | @ → 0 issue "letsencrypt.org" | TTL 3600</li>
+      </ul>
+      <p>Tras propagación: activa SSL/HTTPS, redirección www → raíz y envía sitemap a Google Search Console con verificación TXT. Confirma “hecho” para continuar con el monitoreo.</p>
+    </section>
+  </main>
+  <a class="call-button" href="tel:722252743">Llamar</a>
+  <script>
+    document.getElementById('cta-request').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
+    });
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const submitButton = this.querySelector('button');
+      submitButton.textContent = 'Enviado';
+      submitButton.disabled = true;
+    });
+  </script>
+</body>
+</html>
