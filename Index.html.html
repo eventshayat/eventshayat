@@ -1,0 +1,346 @@
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmación de publicación y visibilidad | Events Hayat</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap');
+:root {
+  --bg: #f3eee7;
+  --card: #ffffff;
+  --accent: #8a9b40;
+  --text: #2d2b27;
+  --muted: #6b6b6b;
+  --dark: #1d1c1a;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+header {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.hero-text {
+  padding-right: 1rem;
+}
+.hero-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 4vw, 3.3rem);
+  color: var(--dark);
+  margin-bottom: 0.75rem;
+}
+.hero-text p {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+.hero-portrait {
+  position: relative;
+  min-height: 260px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80') center/cover;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+.hero-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8,8,8,0) 30%, rgba(13,12,10,0.75));
+}
+.hero-portrait span {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+section {
+  background: var(--card);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 12px 35px rgba(13,12,10,0.08);
+}
+section h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0.75rem;
+  color: var(--dark);
+}
+section p {
+  color: var(--text);
+}
+.grid-two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+.card {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 1.1rem;
+  padding: 1rem 1.2rem;
+  background: #faf7f1;
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: var(--accent);
+}
+.card ul {
+  list-style: none;
+  margin-top: 0.4rem;
+  padding-left: 0;
+  color: var(--muted);
+}
+.card ul li {
+  margin-bottom: 0.25rem;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(138,155,64,0.12);
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 1.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
+  font-family: 'Inter', sans-serif;
+}
+.button.primary {
+  background: var(--accent);
+  color: #fff;
+}
+.button.primary:hover {
+  transform: translateY(-2px);
+}
+.button.secondary {
+  background: rgba(13,12,10,0.08);
+  color: var(--dark);
+}
+.button.secondary:hover {
+  background: rgba(13,12,10,0.12);
+}
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.notice {
+  background: rgba(138,155,64,0.12);
+  border-left: 4px solid var(--accent);
+  padding: 1rem 1.2rem;
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+.grid-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+.grid-list article {
+  padding: 1rem;
+  background: #fdfdf9;
+  border-radius: 1rem;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.grid-list article h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+  color: var(--dark);
+}
+.grid-list article p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.challenge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+@media (max-width: 600px) {
+  header {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="hero-text">
+    <span class="badge">Producción lista</span>
+    <h1>Confirmación en vivo para Eventshayat.com</h1>
+    <p>Repasamos la publicación con SSL activo, redirecciones correctas, DNS propagado y la verificación pendiente para aparecer en Google Search Console cuanto antes.</p>
+    <div class="cta-group">
+      <button class="button primary" id="confirmButton">Confirmar “sí” 🔒</button>
+      <button class="button secondary" onclick="window.open('https://eventshayat.com', '_blank')">Abrir sitio</button>
+    </div>
+  </div>
+  <div class="hero-portrait">
+    <span>Tu foto en hero</span>
+  </div>
+</header>
+
+<section>
+  <div class="notice">
+    ¿Ves el candado SSL en <strong>https://eventshayat.com</strong>? ¿Tu imagen de cabecera + botón “Solicitar disponibilidad” aparecen? Todo debe redirigir correctamente desde <em>http://eventshayat.com</em> y <em>https://www.eventshayat.com</em> hacia <strong>https://eventshayat.com</strong>.
+  </div>
+  <h2>Comprobación rápida de publicación</h2>
+  <div class="grid-list">
+    <article>
+      <h3>Redirecciones</h3>
+      <p>Asegura que todos los accesos sin cifrado o con www se dirigen a https://eventshayat.com sin errores.</p>
+    </article>
+    <article>
+      <h3>Elementos críticos visibles</h3>
+      <p>Candado SSL, foto tuya bajo el teléfono, botón “Solicitar disponibilidad” en hero.</p>
+    </article>
+    <article>
+      <h3>Pruebas complementarias</h3>
+      <p>Abre http y www para confirmar las redirecciones y el estado HTTPS.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>Verifica DNS (propagación)</h2>
+  <div class="card">
+    <h3>Registros clave</h3>
+    <ul>
+      <li>A @ → 76.76.21.21</li>
+      <li>CNAME www → cname.vercel-dns.com</li>
+    </ul>
+    <p>Utiliza <em>dnschecker.org</em> para validar “A” y “CNAME” tanto en eventshayat.com como en www.eventshayat.com.</p>
+  </div>
+  <div class="card">
+    <h3>Tiempo típico</h3>
+    <p>La propagación completa puede tardar minutos a horas; revisa varios DNS públicos si es necesario.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Siguiente paso: Google Search Console</h2>
+  <div class="grid-two">
+    <div class="card">
+      <h3>TXT de verificación</h3>
+      <p>Te envío el valor por email. Una vez añadido, confirmamos en Search Console.</p>
+    </div>
+    <div class="card">
+      <h3>Solicitud de indexación</h3>
+      <p>Tras verificar, enviamos sitemap.xml y solicitamos indexación de Home y Servicios.</p>
+    </div>
+  </div>
+  <p style="margin-top:0.75rem;">La visibilidad inicial suele llegar en 24–72 h (aunque a veces es más rápida).</p>
+</section>
+
+<section>
+  <h2>Qué revisar en la web publicada</h2>
+  <div class="grid-list">
+    <article>
+      <h3>Contacto clicable</h3>
+      <p>Teléfono <strong>722252743</strong> y email <strong>hayatrouiess@hotmail.com</strong> deben abrir llamadas y correo.</p>
+    </article>
+    <article>
+      <h3>Instagram</h3>
+      <p>El enlace “Instagram” en el menú debe llevar a tu cuenta activa.</p>
+    </article>
+    <article>
+      <h3>Formulario en vivo</h3>
+      <p>Envía una prueba desde el formulario y confirma que recibes el aviso.</p>
+    </article>
+    <article>
+      <h3>Responsive móvil</h3>
+      <p>Botón “Llamar” fijo debe funcionar en móviles, incluso en vista portrait.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>Diseño y experiencia</h2>
+  <p>La paleta ecru / gris / carbón con acento oliva se mantiene. Sin cambios de diseño: hero con tu foto, serif + sans ligera, transiciones suaves y grid de Instagram curado.</p>
+</section>
+
+<section>
+  <h2>Confirmación</h2>
+  <p id="statusMessage">¿Ves ya el candado en https://eventshayat.com y las redirecciones funcionando?</p>
+  <div class="contact-row">
+    <a class="contact-link" href="tel:+52722252743">📞 722252743</a>
+    <a class="contact-link" href="mailto:hayatrouiess@hotmail.com">✉️ hayatrouiess@hotmail.com</a>
+    <a class="contact-link" href="https://www.instagram.com" target="_blank" rel="noreferrer">📷 Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <p>Confirma “sí” en cuanto todo esté listo y te envío el TXT para acelerar la indexación.</p>
+</footer>
+</main>
+<script>
+const button = document.getElementById('confirmButton');
+const status = document.getElementById('statusMessage');
+button.addEventListener('click', () => {
+  status.textContent = 'Gracias, “sí” confirmado. Texto de verificación listo para pegar en DNS. Te envío el TXT en breve.';
+  button.textContent = '✔️ Confirmado';
+  button.disabled = true;
+});
+</script>
+</body>
+</html>
